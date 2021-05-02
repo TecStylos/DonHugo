@@ -8,6 +8,13 @@
       "projectTarget": "DonHugo.exe (DonHugo\\DonHugo.exe)",
       "name": "DonHugo.exe (DonHugo\\DonHugo.exe)",
       "currentDir": "${workspaceRoot}/DonHugo"
+    },
+    {
+      "type": "default",
+      "project": "CMakeLists.txt",
+      "projectTarget": "Sandbox.exe (DonHugo\\vendor\\Marx\\Sandbox\\Sandbox.exe)",
+      "name": "Sandbox.exe (DonHugo\\vendor\\Marx\\Sandbox\\Sandbox.exe)",
+      "currentDir": "${workspaceRoot}/DonHugo/vendor/Marx/Sandbox"
     }
   ]
 }
