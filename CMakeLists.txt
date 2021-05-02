@@ -1,0 +1,9 @@
+cmake_minimum_required (VERSION 3.8)
+
+project ("global")
+
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED TRUE)
+
+add_subdirectory("DonHugo/vendor/Marx")
+add_subdirectory("DonHugo")
