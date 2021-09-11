@@ -162,6 +162,20 @@ std::string virtualKeyToString(int virtualKey)
 	return szName;
 }
 
+std::string getKeyComboString(const KeyCombo& keyCombo) {
+	std::string keyComboString;
+	for (uint32_t i = 0; i < keyCombo.nKeys; ++i)
+	{
+
+		keyComboString.append(virtualKeyToString(keyCombo.keys[i]));
+
+		if (i < keyCombo.nKeys - 1)
+			keyComboString.append(" + ");
+	}
+
+	return keyComboString;
+}
+
 std::string openFileDialog()
 {
 	DH_DEBUG_HR_DECL;
@@ -901,7 +915,12 @@ private:
 					ImGui::PopID();
 				}
 				ImGui::SameLine();
-				if (ImGui::Selectable(sound->name.c_str(), isSelected))
+				std::string selectableSoundName;
+				if (sound->keyCombo.nKeys > 0)
+					selectableSoundName = "    [" + getKeyComboString(sound->keyCombo) + "]   ";
+				selectableSoundName += sound->name;
+
+				if (ImGui::Selectable(selectableSoundName.c_str(), isSelected))
 					m_pSelectedSound = sound.get();
 				if (isSelected)
 					ImGui::SetItemDefaultFocus();
@@ -1214,15 +1233,7 @@ private:
 				{
 					ImGui::Checkbox("Edit key combo", &m_editingKeyCombo);
 
-					std::string keyComboString;
-					for (uint32_t i = 0; i < m_pSelectedSound->keyCombo.nKeys; ++i)
-					{
-						
-						keyComboString.append(virtualKeyToString(m_pSelectedSound->keyCombo.keys[i]));
-
-						if (i < m_pSelectedSound->keyCombo.nKeys - 1)
-							keyComboString.append(" + ");
-					}
+					std::string keyComboString = getKeyComboString(m_pSelectedSound->keyCombo);
 					ImGui::Text("Key combo: %s", keyComboString.c_str());
 				}
 			}
