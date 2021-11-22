@@ -20,7 +20,7 @@ struct KeyCombo
 	static constexpr uint32_t nMaxKeys = 4;
 
 	uint32_t nKeys = 0;
-	int keys[nMaxKeys];
+	Marx::Key keys[nMaxKeys];
 };
 
 struct LoadedSound
@@ -167,7 +167,7 @@ std::string getKeyComboString(const KeyCombo& keyCombo) {
 	for (uint32_t i = 0; i < keyCombo.nKeys; ++i)
 	{
 
-		keyComboString.append(virtualKeyToString(keyCombo.keys[i]));
+		keyComboString.append(virtualKeyToString(Marx::KeyCodeConverter::toWin32(keyCombo.keys[i])));
 
 		if (i < keyCombo.nKeys - 1)
 			keyComboString.append(" + ");

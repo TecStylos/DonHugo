@@ -7,7 +7,7 @@
       "project": "CMakeLists.txt",
       "projectTarget": "DonHugo.exe (DonHugo\\DonHugo.exe)",
       "name": "DonHugo.exe (DonHugo\\DonHugo.exe)",
-      "currentDir": "${workspaceRoot}/DonHugo"
+      "currentDir": "${workspaceRoot}/DonHugo",
     },
     {
       "type": "default",
